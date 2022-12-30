@@ -1,0 +1,82 @@
+resume:
+    dir:
+
+data:
+    type: datasets.nocs_dataset
+    data_type: train
+    num_segs: 256
+    sym: 60
+    categories: ['02876657', '02880940', '02942699', '02946921', '03642806', '03797390']
+    names: ['bottle','bowl','camera','can','laptop','mug']
+    data_lists: [./data_lists/02876657_list.txt,
+                ./data_lists/02880940_list.txt,
+                ./data_lists/02942699_list.txt,
+                ./data_lists/02946921_list.txt,
+                ./data_lists/03642806_list.txt,
+                ./data_lists/03797390_list.txt]
+    attrs_dir: ./NOCS_attrs
+    data_dir: ./
+    jitter: 1
+    bg_aug: True
+    composed_dir: ./camera_full_depths
+    train:
+        num_repeats: 1
+        batch_size: 32
+        num_workers: 4
+    test:
+        num_repeats: 1
+        batch_size: 1
+        subset: 1
+        num_workers: 1
+
+real_data:
+    type: datasets.nocs_depth_dataset
+    data_type: real_train
+    num_segs: 256
+    sym: 60
+    categories: ['02876657', '02880940', '02942699', '02946921', '03642806', '03797390']
+    names: ['bottle','bowl','camera','can','laptop','mug']
+    data_lists: ./data_lists/all_real_list.txt
+    attrs_dir: ./NOCS_attrs
+    data_dir: ./real_train
+    train:
+        num_repeats: 1
+        batch_size: 4
+        num_workers: 1
+    test:
+        num_repeats: 1
+        batch_size: 1
+        subset: 1
+        num_workers: 1
+
+viz:
+  log_interval: 1
+  save_interval: 1
+
+trainer:
+    type: trainers.gcn3d_trainer
+    epochs: 15
+    real_epochs: 60
+    latent_dim: 128
+    optim_model:
+        type: Adam
+        lr: 5.e-4
+        betas: [0.9, 0.999]
+        eps: 1.e-8
+        weight_decay: 0
+        lr_scheduler:
+            type: Step
+            initial: 5.e-4
+            interval: 5
+            factor: 0.2
+    loss_label:
+        type: gcn3d.gcn3d
+        weight: 1.0
+
+models:
+    model:
+        type: models.gcn3d.gcn3d
+        num_classes: 257
+        neighbor_num: 50
+        support_num: 1
+
