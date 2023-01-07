@@ -79,19 +79,8 @@ class DualSDFHandler:
         else:
             feature = self.trainer.get_known_latent(id)
         attrs = self.trainer.prim_attr_net(feature.detach()).detach().cpu().numpy()
-        attrs = attrs.reshape( -1, 4)
+        attrs = attrs.reshape(-1, 4)
         return attrs
-    
-    def compute_invariant_feature(points):
-        points[:,:] -= points[:,:1]
-        nlabel = points.shape[1]
-        feature = []
-        for i in range(1, nlabel):
-            for j in range(1, i):
-                a = np.sum(points[:,i]*points[:, j],axis=1,keepdims=True)
-                b = np.linalg.norm(points[:,i],axis=1,keepdims=True)*np.linalg.norm(points[:,j],axis=1,keepdims=True)
-                feature.append(np.arccos(a/b))
-        return np.concatenate(feature, axis=1)
     
     def export_mesh(self, feature, N = 256):
         feature = torch.from_numpy(feature).float().cuda()
