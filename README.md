@@ -45,7 +45,7 @@ train_datas/
 ```
 
 ## Training
-The pretrained model can be download from [Google Drive](https://drive.google.com/file/d/1cznjCC8o3uHAfNPPnTSNZ9ONBFk1leDg/view?usp=sharing), or you can train the model by:
+The pretrained model can be download from [Google Drive](https://drive.google.com/file/d/1Voz-_p0X9cFmNey-yRbnkV6hsVYmDVzZ/view?usp=sharing), or you can train the model by:
 ```bash
 python train.py ./config/gcn3d_seg/gcn3d_seg_all_256.yaml 
 ```
@@ -53,7 +53,7 @@ The training process would take about 1.5 hours for each epoch.
 
 
 ## Evaluation
-The results present in the paper can be downloaded from [Google Drive](), or you can produce the result by:
+The results present in the paper can be downloaded from [Google Drive](https://drive.google.com/file/d/1cznjCC8o3uHAfNPPnTSNZ9ONBFk1leDg/view?usp=sharing), or you can produce the result by:
 ```bash
 python eval.py ./config/gcn3d_seg/gcn3d_seg_all_256.yaml --pretrained <path_to_segmentation_ckpt> # --draw (save result images)
 ```

@@ -1,7 +1,6 @@
 nn_distance/*
 logs*/
 tmp/
-eval_datas/
 *.zip
 output*/
 ckpts/
@@ -16,5 +15,7 @@ ckpts*/
 SGPA_tools/nn_distance/
 camera_full_depths
 eval_logs/
+eval_datas/
+eval_datas
 __pycache__/
 train_datas/

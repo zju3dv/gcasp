@@ -103,7 +103,7 @@ def inference(model, depth, mask, bb, K, shape_handler, class_id):
     for j, label in enumerate(choose_labels):
         center_points[j] = np.mean(points[pred_label==label], axis=0)
 
-    shapecode, attrs, timeused = shape_handler.optimize_shape_ransac(choose_labels, center_points, "args.feature_mode", 1000, 1, num_step=30)
+    shapecode, attrs, timeused = shape_handler.optimize_shape_ransac(choose_labels, center_points, 1000, 1, num_step=30)
 
     attrs = process_attrs(attrs, class_id)
 
