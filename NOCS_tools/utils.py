@@ -2969,7 +2969,7 @@ def draw_detections(image, save_dir, data_name, image_id, intrinsics, synset_nam
     pred_bbx3d = []
 
     if draw_pred:
-        print('a'*50)
+        # print('a'*50)
         # Vs, Fs = dataset.load_objs(image_id, is_normalized=True) ## scale is estimated in RT
         output_path   = os.path.join(save_dir, '{}_{}_coord_pred.png'.format(data_name, image_id))
         output_path_r = os.path.join(save_dir, '{}_{}_coord_pred_r.png'.format(data_name, image_id))
