@@ -81,7 +81,7 @@ def inference(model, depth, mask, bb, K, shape_handler, class_id):
         return return_with_zero()
 
     points = points[np.random.choice(points.shape[0], 1024, True)]
-    data = {'points':torch.from_numpy(points).cuda().unsqueeze(0)/1000.0}
+    data = {'points':torch.from_numpy(points).cuda().unsqueeze(0)}
 
     pred,_ = model.classification(data, np.array(onehot_dict[class_id]))
     pred = torch.exp(pred)[0]
