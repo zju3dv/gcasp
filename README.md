@@ -1,6 +1,7 @@
 # Generative Category-Level Shape and Pose Estimation with Semantic Primitives
-### [Project Page](https://zju3dv.github.io/gCasp) | [Paper](https://arxiv.org/abs/2210.01112) | [OpenReview](https://openreview.net/forum?id=N78I92JIqOJ) | [Poster](https://drive.google.com/file/d/1U1VwOpN_lN1rUAS_2MQkH1glVoG9wp3s/view?usp=sharing)
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/generative-category-level-shape-and-pose/6d-pose-estimation-using-rgbd-on-real275)](https://paperswithcode.com/sota/6d-pose-estimation-using-rgbd-on-real275?p=generative-category-level-shape-and-pose)
+### [Project Page](https://zju3dv.github.io/gCasp) | [Paper](https://arxiv.org/abs/2210.01112) | [OpenReview](https://openreview.net/forum?id=N78I92JIqOJ) | [Poster](https://drive.google.com/file/d/1U1VwOpN_lN1rUAS_2MQkH1glVoG9wp3s/view?usp=sharing)
 
 <div align=center>
 <img src="assets/pipeline.png" width="100%"/>
